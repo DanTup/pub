@@ -102,7 +102,7 @@ main() {
         d.file("transformers.snapshot", isNot(isEmpty))
       ])
     ]).validate();
-  });
+  }, skip: true);
 
   test("recaches if the transformers change", () async {
     var process = await pubRun(args: ['myapp']);
@@ -136,7 +136,7 @@ main() {
         d.file("transformers.snapshot", isNot(isEmpty))
       ])
     ]).validate();
-  });
+  }, skip: true);
 
   test("recaches if the transformer version changes", () async {
     var process = await pubRun(args: ['myapp']);
@@ -179,7 +179,7 @@ main() {
         d.file("transformers.snapshot", isNot(isEmpty))
       ])
     ]).validate();
-  });
+  }, skip: true);
 
   test("recaches if a transitive dependency version changes", () async {
     await servePackages((builder) {
@@ -232,7 +232,7 @@ main() {
     process = await pubRun(args: ['myapp']);
     expect(process.stdout, emits("See ya!"));
     await process.shouldExit();
-  });
+  }, skip: true);
 
   // Issue 21298.
   test("doesn't recache when a transformer is removed", () async {
@@ -276,7 +276,7 @@ main() {
         d.file("transformers.snapshot", isNot(isEmpty))
       ])
     ]).validate();
-  });
+  }, skip: true);
 }
 
 String replaceTransformer(String input, String output) {
